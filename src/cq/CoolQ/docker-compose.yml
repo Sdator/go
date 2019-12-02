@@ -1,0 +1,11 @@
+version: '2'
+services:
+  build-gocqplg:
+  # 编译dll用
+    container_name: build-gocqplg
+    image: tnze/coolq-golang-builder
+    volumes:
+      - ${pwd}:/home
+    environment:
+    # 设置镜像地址 国内加速
+      GOPROXY: https://goproxy.cn,direct

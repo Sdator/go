@@ -1,0 +1,24 @@
+{
+	"ret": 1,
+	"apiver": 9,
+	"appid": "me.cqp.Air.demo",
+	"name": "GoDemo",
+	"version": "1.0.0",
+	"version_id": 23,
+	"author": "Air",
+	"description": "一个超棒的Go语言插件Demo，它会回复你的私聊消息~",
+	"event": [
+		{
+			"name": "私聊消息",
+			"function": "EVENT_ON_PRIVATE_MSG",
+			"type": 21,
+			"priority": 20000,
+			"id": 1
+		}
+	],
+	"auth": [
+		106
+	],
+	"menu": [],
+	"status": []
+}
