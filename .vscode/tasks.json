@@ -12,5 +12,12 @@
                 "cq"
             ]
         },
+        {
+            "label": "构建dll",
+            "command": "cmd",
+            "args": [
+          
+            ]
+        }
     ]
 }
