@@ -1,0 +1,24 @@
+{
+	"name": "go-dev",
+	// 配置文件
+	"dockerComposeFile": "docker-compose.yml",
+	// 连接到的服务
+	"service": "go-dev",
+	// 守护程序代入参数
+	"runArgs": [
+		"--cap-add=SYS_PTRACE",
+		"--security-opt",
+		"seccomp=unconfined"
+	],
+	// 连接容器后进入的工作目录
+	"workspaceFolder": "/workspace",
+	// vscode设置
+	"settings": {
+		"terminal.integrated.shell.linux": "/bin/bash",
+		"go.gopath": "/go"
+	},
+	// 扩展
+	"extensions": [
+		"ms-vscode.go"
+	]
+}
