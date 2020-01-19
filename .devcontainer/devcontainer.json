@@ -13,8 +13,9 @@
 	// 连接容器后进入的工作目录
 	"workspaceFolder": "/working",
 
-	// 环境变量
+	// 环境变量 
 	// "remoteEnv": {
+		// 变量好像用不了
 	// 	"PATH": "${containerEnv:PATH}:/usr/local/go/bin"
 	// },
 
