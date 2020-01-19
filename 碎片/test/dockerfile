@@ -1,0 +1,42 @@
+FROM golang:alpine
+
+# ARG USERNAME=vscode
+# ARG USER_UID=1000
+# ARG USER_GID=$USER_UID
+
+
+# 替换alpine源为阿里云镜像
+# 安装常用程序
+RUN sed -i -e 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/' /etc/apk/repositories \
+    && apk --update add --no-cache \
+    git \
+    openssh
+    # sudo \
+    # bash \
+    # wget \
+    # curl \
+    # gcc \
+    # g++ \
+
+# # 添加用户组
+# RUN addgroup -g $USER_GID $USERNAME \
+#     # 添加用户
+#     && adduser -s /bin/bash -u $USER_UID -G $USERNAME -D $USERNAME \
+#     # 添加到sudo用户组 使用户可以使用sudo指令
+#     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
+#     && chmod 0440 /etc/sudoers.d/$USERNAME
+
+RUN rm -rf /var/cache/apk/*
+
+# USER $USERNAME
+
+# WORKDIR /HOME/$USERNAME
+
+
+# g++ 是 gcc的超集，也就是安装了g++等于安装了gcc  g++比gcc只多出了三个包
+# (11/13) Installing musl-dev (1.1.24-r0)
+# (12/13) Installing libc-dev (0.7.2-r0)
+# (13/13) Installing g++ (9.2.0-r3)
+# 参考
+# https://pkgs.alpinelinux.org/packages?name=g%2B%2B&branch=v3.11
+# https://blog.csdn.net/liumiaocn/article/details/100903476

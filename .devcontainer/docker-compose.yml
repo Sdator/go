@@ -2,13 +2,19 @@ version: "3"
 services:
   go-dev:
     container_name: go-dev
-    image: sdator/go
+    image: dev:go
     build:
       context: ..
       dockerfile: .devcontainer/Dockerfile
     volumes:
       - ~/.ssh:/home/vscode/.ssh:cached
-      - ..:/workspace:cached
+      - ..:/working:cached
     tty: true
-    user: vscode
-    working_dir: /workspace
+    environment:
+      GOPATH: /working
+      GOPROXY: https://goproxy.cn
+      # 加入后调试会报错
+      # GO111MODULE: "on"
+    #   export http_proxy=http://socks=127.0.0.1:8086
+    #   export https_proxy=http://socks=127.0.0.1:8086
+    # user: vscode

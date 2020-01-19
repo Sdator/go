@@ -1,0 +1,69 @@
+    github.com/ramya-rao-a/go-outline \
+    github.com/acroca/go-symbols \
+    github.com/mdempsky/gocode \
+    github.com/rogpeppe/godef \
+    golang.org/x/tools/cmd/godoc \
+    github.com/zmb3/gogetdoc \
+    golang.org/x/lint/golint \
+    github.com/fatih/gomodifytags \
+    golang.org/x/tools/cmd/gorename \
+    sourcegraph.com/sqs/goreturns \
+    golang.org/x/tools/cmd/goimports \
+    github.com/cweill/gotests/... \
+    golang.org/x/tools/cmd/guru \
+    github.com/josharian/impl \
+    github.com/haya14busa/goplay/cmd/goplay \
+    github.com/uudashr/gopkgs/cmd/gopkgs \
+    github.com/davidrjenni/reftools/cmd/fillstruct \
+
+    go get -u -v github.com/mdempsky/gocode
+ 
+
+创建临时目录 用于存放build生成的程序
+mkdir -p $WORK\b001\exe\
+cd .
+
+
+// go get -u -v -x github.com/mdempsky/gocode   流程
+// 取得所有工具或下载所需的依赖
+get ...
+get ...
+// 设置临时工作目录
+WORK=C:\Users\Air\AppData\Local\Temp\go-build969091722
+mkdir -p $WORK\b001\
+// 把所需的依赖写到配置文件中
+cat >$WORK\b001\importcfg.link << 'EOF' # internal
+packagefile ...
+packagefile ...
+EOF
+
+mkdir -p $WORK\b001\exe\
+cd .
+// 调用链接工具 生成exe文件
+"D:\\Apps\\Scoop\\apps\\go\\current\\pkg\\tool\\windows_amd64\\link.exe" 
+// 输出文件
+-o "C:\\Users\\Air\\AppData\\Local\\Temp\\go-build969091722\\b001\\exe\\a.out.exe" 
+// 导入配置文件 所需的依赖库
+-importcfg "C:\\Users\\Air\\AppData\\Local\\Temp\\go-build969091722\\b001\\importcfg.link" 
+// 生成模式exe文件
+-buildmode=exe 
+// id 应该是标识或者身份证 用于后续验证
+-buildid=vKBScTFPeKwD2YSwvLbC/4HREBFDovlfY6Rvnqzmm/yv4uj0Da3WELBkETjKHK/vKBScTFPeKwD2YSwvLbC 
+// 使用gcc编译
+-extld=gcc "C:\\Users\\Air\\AppData\\Local\\go-build\\de\\deab63f0e376ab93f3b76b6bd8e1b6b6af476596a935989d56487367ea8fb135-d"
+
+// 二次编译？ 或者是加入了某些东西
+"D:\\Apps\\Scoop\\apps\\go\\current\\pkg\\tool\\windows_amd64\\buildid.exe" 
+-w "C:\\Users\\Air\\AppData\\Local\\Temp\\go-build969091722\\b001\\exe\\a.out.exe" # internal
+
+
+//创建bin目录
+mkdir -p D:\Git\go\bin\
+
+//把生成后的程序复制到bin目录中
+cp $WORK\b001\exe\a.out.exe D:\Git\go\bin\gocode.exe
+
+//删除临时目录
+rm -r $WORK\b001\
+
+

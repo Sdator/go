@@ -40,10 +40,6 @@ func main() {
 	t := darr[1:2]
 	fmt.Println(t, cap(t))
 	t = t[:3]
-
-
-	fmt.Println(t, cap(t))
-
 }
 
 func abc(a, b int) (aa int) {

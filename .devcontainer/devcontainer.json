@@ -11,14 +11,24 @@
 		"seccomp=unconfined"
 	],
 	// 连接容器后进入的工作目录
-	"workspaceFolder": "/workspace",
+	"workspaceFolder": "/working",
+
+	// 环境变量
+	// "remoteEnv": {
+	// 	"PATH": "${containerEnv:PATH}:/usr/local/go/bin"
+	// },
+
 	// vscode设置
-	"settings": {
-		"terminal.integrated.shell.linux": "/bin/bash",
-		"go.gopath": "/go"
-	},
+	// "settings": {
+	// 	// "terminal.integrated.shell.linux": "/bin/bash",
+	// 	// "go.gopath": "/go",
+	// 	// "go.toolsGopath": "/go/bin",
+	// 	// "go.gopath": "${workspaceRoot}"
+	// },
 	// 扩展
 	"extensions": [
-		"ms-vscode.go"
+		"ms-vscode.go",
+		"actboy168.tasks"
+
 	]
 }

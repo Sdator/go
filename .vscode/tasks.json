@@ -9,15 +9,54 @@
             "command": "go",
             "args": [
                 "run",
-                "cq"
-            ]
+                "${file}"
+            ],
+            "options": {
+                // "cwd": "${workspaceRoot}",
+                "env": {
+                    "GOPATH": "${workspaceRoot}",
+                    // "GOBIN": "/go/bin",
+                },
+            }
         },
         {
-            "label": "构建dll",
-            "command": "cmd",
+            "label": "go build",
+            "command": "go",
             "args": [
-          
-            ]
+                "build",
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            }
+        },
+        {
+            "label": "输出",
+            "command": "echo",
+            "args": [
+                "${workspaceFolder}"
+                // "${workspaceRoot}/src/test"
+            ],
+            "options": {
+                "cwd": "${workspaceRoot}",
+                "env": {
+                    "GOPATH": "${workspaceRoot}",
+                    "GOBIN": "/go/bin",
+                    "SHELL": "bash",
+                },
+            }
+        },
+        {
+            "label": "输出无污染",
+            "command": "go env",
+            "args": [
+                // "${fileDirname}"
+                // "${workspaceRoot}/src/test"
+            ],
+            "options": {
+                "env": {
+                    "GOPATH": "${workspaceRoot}",
+                }
+            }
         }
     ]
 }

@@ -3,7 +3,7 @@
 	// for the documentation about the extensions.json format
 	"recommendations": [
 		// Extension identifier format: ${publisher}.${name}. Example: vscode.csharp
-		"actboy168.tasks",
+		// 建议安装的插件
 		"ms-vscode.go"
 	]
 }

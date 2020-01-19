@@ -1,4 +1,12 @@
 {
     "terminal.integrated.shell.windows": "C:\\ScoopApp\\git\\current\\bin\\bash.exe",
+    // "terminal.integrated.shell.linux": "/bin/bash",
     "git.ignoreLimitWarning": true,
+    // go工具路径 会自动创建bin和pkg
+    "go.toolsGopath": "/working",
+    // go工作路径
+    "go.gopath": "/working",
+    // 开启代码自动检测
+    // "go.inferGopath": false
+
 }
