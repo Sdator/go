@@ -1,6 +1,6 @@
-记录
-当使用var定义了变量后没有定义类型 系统会自动判定
-当使用:=进行赋值可以忽略定义和类型 系统会自动判定 不能重复对已存在的变量进行赋值 必须包含一个未定义的变量才能使用
+// 记录
+// 当使用var定义了变量后没有定义类型 系统会自动判定
+// 当使用:=进行赋值可以忽略定义和类型 系统会自动判定 不能重复对已存在的变量进行赋值 必须包含一个未定义的变量才能使用
 
 
 //=========
@@ -246,3 +246,119 @@
 		countriesNeeded := countries()
 		fmt.Println(countriesNeeded)
 	}
+
+
+	//结构体
+	type 学生 struct {
+		姓名,性别 string
+		身高	int
+		体重	int
+	}
+	func main()  {
+		// 方法1	定义
+		var 小明 学生
+		// 方法2	定义并赋值		
+		小明 := 学生{
+			// 位置随意
+			姓名:"小明",
+			身高:150,
+			性别:"男",
+			体重:100
+		}
+		// 方法3	定义并按顺序赋值	
+		小明 := 学生{"小明","男",150,100}
+
+		fmt.Printf("姓名：%s，体重%d", 学生.姓名, 学生.体重)
+	}
+
+	// 匿名结构体
+	emp3 := struct {
+        firstName, lastName string
+        age, salary         int
+    }{
+        firstName: "Andreah",
+        lastName:  "Nikola",
+        age:       31,
+        salary:    5000,
+	}
+	// 匿名字段
+	type Person struct {  
+		string
+		int
+	}
+	// 嵌套结构体
+	type Address struct {  
+		city, state string
+	}
+	type Person struct {  
+		name string
+		age int
+		address Address		// 这个字段的类型是另外一个结构体
+	}
+	// 嵌套结构体使用方法
+	var p Person
+    p.name = "Naveen"
+    p.age = 50
+    p.address = Address {		//直接赋值对应的结构体
+        city: "Chicago",
+        state: "Illinois",
+	}
+	// 提升字段
+	// 匿名嵌套结构体  会把匿名结构体里面的字段提升到夫父结构体中
+	type Person struct {  
+		name string
+		age int
+		Address			// 嵌套匿名结构体   
+	}
+	var p Person
+	p.name
+	p.city			//可以直接读取嵌套匿名结构体 里面的字段 而不用 p.Address.city
+	p.state
+
+	p := Person{"李","男",city:1,state:2}	//猜测也可以直接赋值 因为字段提升了
+
+
+	// 方法
+	// 和函数类似 但可以将结构体作为接收器 来执行方法，同时实现了类似函数重载的系统 同一个名字的方法 接收器类型不同 可以存在多个 
+
+	type Rectangle struct {
+		length int
+		width  int
+	}
+
+	type Circle struct {
+		radius float64
+	}
+	// 值接收器的方法
+	//分别为两个结构体创建了名字相同的方法
+	func (r Rectangle) Area() int {				 //同一个名字的方法 接收器类型不同 可以存在多个 
+		return r.length * r.width
+	}
+
+	func (c Circle) Area() float64 {
+		return math.Pi * c.radius * c.radius
+	}
+
+	func main() {
+		r := Rectangle{
+			length: 10,
+			width:  5,
+		}
+		fmt.Printf("Area of rectangle %d\n", r.Area())
+		c := Circle{
+			radius: 12,
+		}
+		fmt.Printf("Area of circle %f", c.Area())
+	}
+
+	// 指针接收器的方法。
+	func (e *Employee) changeAge(newAge int) {
+		e.age = newAge
+	}
+	// 创建结构体实例
+	e := Employee{
+        name: "Mark Andrew",
+        age:  50,
+    }
+	// 指针接收器的方法 调用
+	(&e).changeAge(51)
