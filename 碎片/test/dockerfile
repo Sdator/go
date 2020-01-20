@@ -7,10 +7,10 @@ FROM golang:alpine
 
 # 替换alpine源为阿里云镜像
 # 安装常用程序
-RUN sed -i -e 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/' /etc/apk/repositories \
-    && apk --update add --no-cache \
-    git \
-    openssh
+# RUN sed -i -e 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/' /etc/apk/repositories \
+#     && apk --update add --no-cache \
+#     git \
+#     openssh
     # sudo \
     # bash \
     # wget \
@@ -26,7 +26,7 @@ RUN sed -i -e 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/' /etc/apk/repositori
 #     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
 #     && chmod 0440 /etc/sudoers.d/$USERNAME
 
-RUN rm -rf /var/cache/apk/*
+# RUN rm -rf /var/cache/apk/*
 
 # USER $USERNAME
 

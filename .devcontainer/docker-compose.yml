@@ -17,4 +17,4 @@ services:
       # GO111MODULE: "on"
     #   export http_proxy=http://socks=127.0.0.1:8086
     #   export https_proxy=http://socks=127.0.0.1:8086
-    user: vscode
+    # user: vscode
