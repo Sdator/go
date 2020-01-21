@@ -7,7 +7,7 @@ services:
       context: ..
       dockerfile: .devcontainer/Dockerfile
     volumes:
-      - ~/.ssh:/home/vscode/.ssh:cached
+      - ~/.ssh:/home/vscode/.ssh:ro
       - ..:/working:cached
     tty: true
     environment:
