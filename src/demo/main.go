@@ -41,6 +41,8 @@ func main() {
 	fmt.Println(t, cap(t))
 	t = t[:3]
 
-	fmt.Printf("%v", t)
+	切片 := []int{1, 2, 3}
+
+	fmt.Printf("%t\t%t", t, 切片)
 
 }
