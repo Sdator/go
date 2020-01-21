@@ -7,8 +7,7 @@
     // go工作路径
     "go.gopath": "/working",
     // 开启智能提示
-    // "go.inferGopath": true,
-    // "go.formatTool": "gofmt"
+    "go.inferGopath": true,
     // 保存文件自动格式化
     "editor.formatOnSave": true
 }

@@ -41,6 +41,6 @@ func main() {
 	fmt.Println(t, cap(t))
 	t = t[:3]
 
-	
-}
+	fmt.Printf("%v", t)
 
+}
