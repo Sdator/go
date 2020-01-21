@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"file"
+	"fmt"
+)
 
 func main() {
 	// 变量定义  定义的变量必须要使用不然编译器报错
@@ -40,9 +43,5 @@ func main() {
 	t := darr[1:2]
 	fmt.Println(t, cap(t))
 	t = t[:3]
-
-	切片 := []int{1, 2, 3}
-
-	fmt.Printf("%t\t%t", t, 切片)
 
 }
