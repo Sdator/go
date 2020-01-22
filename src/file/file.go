@@ -12,15 +12,22 @@ import (
 // 获取程序自身路径
 var _, baseFile = pf.Split(os.Args[0])
 
+const (
+	作者 = "by 絕 250740270"
+	说明 = "指定一个文件，如： -f xxx.bin\n" + 作者
+)
+
 func main() {
 	var file string
-	flag.StringVar(&file, "f", "(文件名)", "指定一个文件")
+	flag.StringVar(&file, "f", "(文件名)", 说明)
 	flag.Parse()
 	if file == "(文件名)" {
-		println("指定一个文件如： -f xxx.bin")
+		println(说明)
 		return
 	}
 	写文件(file)
+	println(作者)
+
 }
 
 // 写文件 读写并修改
