@@ -7,5 +7,6 @@
     // 开启智能提示
     "go.inferGopath": true,
     // 保存文件自动格式化
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "terminal.integrated.shell.linux": "/bin/sh"
 }

@@ -5,18 +5,18 @@
     "type": "shell",
     "tasks": [
         {
-            "label": "go运行",
+            "label": "go run",
             "command": "go",
             "args": [
                 "run",
                 "${file}"
             ],
             "options": {
-                // "cwd": "${workspaceRoot}",
-                "env": {
-                    "GOPATH": "${workspaceRoot}",
-                    // "GOBIN": "/go/bin",
-                },
+                "cwd": "${fileDirname}",
+                // "env": {
+                //     "GOPATH": "${workspaceRoot}",
+                //     // "GOBIN": "/go/bin",
+                // },
             }
         },
         {
@@ -33,7 +33,7 @@
             "label": "输出",
             "command": "echo",
             "args": [
-                "${workspaceFolder}"
+                "${fileDirname}"
                 // "${workspaceRoot}/src/test"
             ],
             "options": {
